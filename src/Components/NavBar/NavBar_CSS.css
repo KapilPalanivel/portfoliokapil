@@ -1,24 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Platypi:ital,wght@0,300..800;1,300..800&display=swap');
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 :root {
     --maincolor: #265451;
     --textcolor: white;
     --secondarycolor: #b7b9ad;
+    --translucentPurple: rgba(128, 0, 128, 0.5);
 }
 
 .logo-name {
-    font-family: jura, sans-serif;
+    font-family: 'Jura', sans-serif;
     color: var(--textcolor);
     text-decoration: none;
-}
-
-.header:hover {
-    box-shadow: 0 0 8px #4f4b4b; 
 }
 
 .header {
@@ -28,13 +20,18 @@
     height: 40px;
     margin: 5px;
     padding: 0 2rem;
-    background-color: var(--maincolor);
+    background-color: var(--translucentPurple);
     color: var(--textcolor);
     border-radius: 3px;
+    transition: background-color 1s ease;
+}
+
+.header:hover {
+    background-color: var(--translucentPurple);
 }
 
 nav a {
-    color: white; /* Changed to maincolor */
+    color: var(--textcolor);
     margin: 0 2rem;
     text-decoration: none;
 }
@@ -84,6 +81,39 @@ nav {
         justify-content: center;
         gap: 1.5rem;
         background-color: var(--maincolor);
+        color: var(--textcolor);
+        transition: 1s;
+    }
+
+    header .nav {
+        transform: translateY(100vh);
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .nav-btn {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    nav .nav-close {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+    }
+
+    header nav {
+        position: fixed;
+        top: -100vh;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        background-color: var(--translucentPurple); /* Set translucent purple background */
         color: var(--textcolor);
         transition: 1s;
     }
