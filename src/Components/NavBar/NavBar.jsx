@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { FaBars, FaLine, FaTimes } from "react-icons/fa";
-
+import "./NavBar_CSS.css";
 export default function NavBar()
 {
     const NavRef=useRef();
@@ -8,7 +8,7 @@ export default function NavBar()
         NavRef.current.classList.toggle("nav");
     }
     return(
-        <header >
+        <header className="header">
             <h3 className="logo-name">KAPIL</h3>
             <nav ref={NavRef}>
                 <a href="#">Home</a>
