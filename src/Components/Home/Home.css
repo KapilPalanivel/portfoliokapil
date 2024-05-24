@@ -1,16 +1,44 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    background-image: url(../../Assets/Home/Background.jpg);
-    background-repeat: no-repeat;
-    background-position: fixed;
-    background-size: cover;
+:root {
+    --textcolor: white;
 }
 
-body > :not(header):not(nav) {
-    background: none; 
+
+
+.main-name-front {
+    display: flex;
+    align-items: center;
+    padding: 10%;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 0 20px;
+}
+
+h1{
+    color: aliceblue;
+}
+
+.main-image {
+    width: 300px; 
+    height: 300px;
+    border-radius: 10%;
+}
+
+.main-about {
+    color: var(--textcolor);
+    margin-bottom: 15px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .main-name-front{
+        display: flex;
+        flex-direction: column;
+    }
 }

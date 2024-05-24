@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Platypi:ital,wght@0,300..800;1,300..800&display=swap');
-
 :root {
     --maincolor: #265451;
     --textcolor: white;
     --secondarycolor: #b7b9ad;
     --translucentPurple: rgba(128, 0, 128, 0.5);
+    --x: 0;
+    --y: 0;
 }
 
 .logo-name {
@@ -13,8 +13,43 @@
     text-decoration: none;
 }
 
+.nav-glow {
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px var(--translucentPurple), 0 0 20px var(--translucentPurple), 0 0 30px var(--translucentPurple), 0 0 40px var(--translucentPurple), 0 0 50px var(--translucentPurple), 0 0 60px var(--translucentPurple), 0 0 70px var(--translucentPurple);
+    }
+    to {
+        box-shadow: 0 0 10px var(--translucentPurple), 0 0 40px var(--translucentPurple), 0 0 60px var(--translucentPurple), 0 0 80px var(--translucentPurple), 0 0 100px var(--translucentPurple), 0 0 120px var(--translucentPurple), 0 0 140px var(--translucentPurple);
+    }
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: calc(var(--y) - 0.5rem);
+    left: calc(var(--x) - 0.5rem);
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: var(--translucentPurple);
+    box-shadow: 0 0 10px 10px var(--translucentPurple), 0 0 20px 20px var(--translucentPurple);
+    pointer-events: none;
+    transition: all 0s ease;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.header:hover:not(:has(nav:hover))::before {
+    opacity: 1;
+}
+
 .header {
     display: flex;
+    position: sticky;
+    top: 0;
     justify-content: space-between;
     align-items: center;
     height: 40px;
@@ -24,10 +59,7 @@
     color: var(--textcolor);
     border-radius: 3px;
     transition: background-color 1s ease;
-}
-
-.header:hover {
-    background-color: var(--translucentPurple);
+    overflow: hidden;
 }
 
 nav a {
@@ -55,6 +87,7 @@ header div,
 nav {
     display: flex;
     align-items: center;
+    align-items: space-between;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -62,7 +95,7 @@ nav {
         visibility: visible;
         opacity: 1;
     }
-
+    
     nav .nav-close {
         position: absolute;
         top: 2rem;
@@ -81,39 +114,6 @@ nav {
         justify-content: center;
         gap: 1.5rem;
         background-color: var(--maincolor);
-        color: var(--textcolor);
-        transition: 1s;
-    }
-
-    header .nav {
-        transform: translateY(100vh);
-    }
-}
-
-@media only screen and (max-width: 1024px) {
-    .nav-btn {
-        visibility: visible;
-        opacity: 1;
-    }
-
-    nav .nav-close {
-        position: absolute;
-        top: 2rem;
-        right: 2rem;
-    }
-
-    header nav {
-        position: fixed;
-        top: -100vh;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 1.5rem;
-        background-color: var(--translucentPurple); /* Set translucent purple background */
         color: var(--textcolor);
         transition: 1s;
     }
