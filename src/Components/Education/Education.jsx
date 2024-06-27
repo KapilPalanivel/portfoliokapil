@@ -2,7 +2,7 @@ export default function Education()
 {
     return(
         <div>
-            <h1>Hllo Education!</h1>
+            <h1>Hello Education!</h1>
         </div>
     );
 }

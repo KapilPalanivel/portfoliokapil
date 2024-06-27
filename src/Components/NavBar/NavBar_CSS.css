@@ -13,18 +13,20 @@
     text-decoration: none;
 }
 
-.nav-glow {
-    animation: glow 1.5s infinite alternate;
-}
 
-@keyframes glow {
+/* @keyframes glow {
     from {
         box-shadow: 0 0 5px var(--translucentPurple), 0 0 20px var(--translucentPurple), 0 0 30px var(--translucentPurple), 0 0 40px var(--translucentPurple), 0 0 50px var(--translucentPurple), 0 0 60px var(--translucentPurple), 0 0 70px var(--translucentPurple);
     }
+
     to {
         box-shadow: 0 0 10px var(--translucentPurple), 0 0 40px var(--translucentPurple), 0 0 60px var(--translucentPurple), 0 0 80px var(--translucentPurple), 0 0 100px var(--translucentPurple), 0 0 120px var(--translucentPurple), 0 0 140px var(--translucentPurple);
     }
 }
+
+.nav-glow {
+    animation: glow 1.5s infinite alternate;
+} */
 
 .header::before {
     content: '';
@@ -91,11 +93,12 @@ nav {
 }
 
 @media only screen and (max-width: 1024px) {
+
     .nav-btn {
         visibility: visible;
         opacity: 1;
     }
-    
+
     nav .nav-close {
         position: absolute;
         top: 2rem;
